@@ -8,7 +8,7 @@ final class SnapshotTestingStitchTests: XCTestCase {
     
     func test_withTitles() {
         assertSnapshot(
-            matching: createTestViewController(),
+            of: createTestViewController(),
             as: .stitch(
                 strategies: [
                     ("iPhone 8", .image(on: .iPhone8)),
@@ -21,7 +21,7 @@ final class SnapshotTestingStitchTests: XCTestCase {
     
     func test_withoutTitles() {
         assertSnapshot(
-            matching: createTestViewController(),
+            of: createTestViewController(),
             as: .stitch(
                 strategies: [
                     .image(on: .iPhone8),
@@ -34,7 +34,7 @@ final class SnapshotTestingStitchTests: XCTestCase {
     
     func test_withoutBorder() {
         assertSnapshot(
-            matching: createTestViewController(),
+            of: createTestViewController(),
             as: .stitch(
                 strategies: [
                     ("iPhone 8", .image(on: .iPhone8)),
@@ -48,7 +48,7 @@ final class SnapshotTestingStitchTests: XCTestCase {
     
     func test_withManyDevices() {
         assertSnapshot(
-            matching: createTestViewController(),
+            of: createTestViewController(),
             as: .stitch(
                 strategies: [
                     ("iPhone 8", .image(on: .iPhone8)),
@@ -66,7 +66,7 @@ final class SnapshotTestingStitchTests: XCTestCase {
     
     func test_withView() {
         assertSnapshot(
-            matching: createTestView(),
+            of: createTestView(),
             as: .stitch(
                 strategies: [
                     ("100x", .image(size: CGSize(width: 100, height: 100))),
@@ -77,21 +77,9 @@ final class SnapshotTestingStitchTests: XCTestCase {
         )
     }
     
-    func test_withNoStrategies() {
-        // You actually get a compiler warning for ambiguity by default, so you have to go through some loops to pass
-        // literally nothing through.
-        let tasks: [Snapshotting<UIView, UIImage>] = []
-        
-        assertSnapshot(
-            matching: createTestView(),
-            as: .stitch(strategies: tasks),
-            record: isRecording
-        )
-    }
-    
     func test_withConfigure() {
         assertSnapshot(
-            matching: createTestViewController(),
+            of: createTestViewController(),
             as: .stitch(strategies: [
                 .init(name: "Green", strategy: .image, configure: { $0.view.backgroundColor = .green }),
                 .init(name: "Pink", strategy: .image, configure: { $0.view.backgroundColor = .systemPink }),

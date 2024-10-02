@@ -17,10 +17,10 @@ let package = Package(
     dependencies: [
         .package(name: "swift-snapshot-testing",
                  url: "https://github.com/pointfreeco/swift-snapshot-testing.git",
-                 from: "1.10.0"),
+                 from: "1.17.5"),
         .package(name: "SnapshotTestingHEIC",
                  url: "https://github.com/alexey1312/SnapshotTestingHEIC.git",
-                 from: "1.2.1"),
+                 from: "1.5.0"),
     ],
     targets: [
         .target(
