@@ -7,7 +7,7 @@ let package = Package(
     name: "SnapshotTestingStitch",
     platforms: [
         .iOS(.v13),
-        .MacOS(.v10_15)
+        .macOS(.v10_15)
     ],
     products: [
         .library(
